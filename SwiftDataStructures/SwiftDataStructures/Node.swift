@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class Node<Element> {
-    var index:Element? = nil
+public class Node<Element where Element : Comparable> {
+    var index:Element
     var next: Node<Element>? = nil
     
     init(newIndex: Element) {
@@ -26,6 +26,15 @@ public class Node<Element> {
     
 }
 
-extension Node where Element : Comparable {
+
+extension Node : Equatable { }
+
+public func == <Element where Element : Equatable> (lhs: Node<Element>, rhs: Node<Element>) -> Bool {
+    return lhs.index == rhs.index && lhs.next! == rhs.next!
+}
     
+extension Node : Comparable { }
+
+public func < <Element where Element : Comparable> (lhs: Node<Element>, rhs: Node<Element>) -> Bool {
+    return lhs.index < rhs.index
 }

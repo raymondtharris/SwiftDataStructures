@@ -11,6 +11,7 @@
 		229173C41CE98FB60085378C /* SwiftDataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229173B91CE98FB60085378C /* SwiftDataStructures.framework */; };
 		229173C91CE98FB60085378C /* SwiftDataStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229173C81CE98FB60085378C /* SwiftDataStructuresTests.swift */; };
 		229173D41CE98FC50085378C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229173D31CE98FC50085378C /* Node.swift */; };
+		22EAC1B11CEAC51900C1F5EF /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EAC1B01CEAC51900C1F5EF /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		229173C81CE98FB60085378C /* SwiftDataStructuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataStructuresTests.swift; sourceTree = "<group>"; };
 		229173CA1CE98FB60085378C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		229173D31CE98FC50085378C /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		22EAC1B01CEAC51900C1F5EF /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				229173BC1CE98FB60085378C /* SwiftDataStructures.h */,
 				229173D31CE98FC50085378C /* Node.swift */,
+				22EAC1B01CEAC51900C1F5EF /* List.swift */,
 				229173BE1CE98FB60085378C /* Info.plist */,
 			);
 			path = SwiftDataStructures;
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				229173D41CE98FC50085378C /* Node.swift in Sources */,
+				22EAC1B11CEAC51900C1F5EF /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +391,7 @@
 				229173CF1CE98FB60085378C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		229173D01CE98FB60085378C /* Build configuration list for PBXNativeTarget "SwiftDataStructuresTests" */ = {
 			isa = XCConfigurationList;
@@ -395,6 +400,7 @@
 				229173D21CE98FB60085378C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
