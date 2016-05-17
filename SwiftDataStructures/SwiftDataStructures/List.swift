@@ -38,4 +38,32 @@ public class List<Element where Element : Comparable> {
     func insertAfter(newNode: Node<Element>, afterTheisNode: Node<Element>) {
         
     }
+    
+    func removeAtTail() -> Node<Element> {
+        
+    }
+    
+    func removeAtHead() -> Node<Element> {
+        
+    }
+    
+    func removeBefore(beforeThisNode: Node<Element>) -> Node<Element> {
+    
+    }
+    
+    func removeAfter(afterThisNode: Node<Element>) -> Node<Element> {
+        
+    }
+    
+    func findNode(searchFor: Node<Element>) -> Node<Element>? {
+        return nil
+    }
+
+    func findNodeByIndex(searchIndex: Element) -> Node<Element>? {
+        return nil
+    }
+}
+
+extension List : SequenceType {
+    
 }
