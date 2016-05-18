@@ -24,11 +24,25 @@ public class List<Element where Element : Comparable> {
     init(){ }
     
     func insertAtTail(newNode: Node<Element>) {
-        
+        if head == nil {
+            head = newNode
+            tail = newNode
+        } else {
+            tail!.next = newNode
+            tail = newNode
+        }
+        size = size + 1
     }
     
     func insertAtHead(newNode: Node<Element>) {
-        
+        if head == nil {
+            head = newNode
+            tail = newNode
+        } else {
+            newNode.next = head
+            head = newNode
+        }
+        size = size + 1
     }
     
     func insertBefore(newNode: Node<Element>, beforeThisNode: Node<Element>) {
@@ -39,23 +53,43 @@ public class List<Element where Element : Comparable> {
         
     }
     
-    func removeAtTail() -> Node<Element> {
+    func removeAtTail() -> Node<Element>? {
+        if head != nil {
+            let toRemove = tail!
+            var current = head
+            while current != nil {
+                if current?.next == tail {
+                    current?.next = nil
+                    tail = current
+                    size = size - 1
+                    return toRemove
+                }
+            }
+        }
+        return nil
         
     }
     
-    func removeAtHead() -> Node<Element> {
-        
+    func removeAtHead() -> Node<Element>? {
+        if head != nil {
+            let toRemove = head
+            head = head?.next
+            size = size - 1
+            return toRemove
+        }
+        return nil
     }
     
-    func removeBefore(beforeThisNode: Node<Element>) -> Node<Element> {
-    
+    func removeBefore(beforeThisNode: Node<Element>) -> Node<Element>? {
+        return nil
     }
     
-    func removeAfter(afterThisNode: Node<Element>) -> Node<Element> {
-        
+    func removeAfter(afterThisNode: Node<Element>) -> Node<Element>? {
+        return nil
     }
     
     func findNode(searchFor: Node<Element>) -> Node<Element>? {
+        
         return nil
     }
 
@@ -64,6 +98,8 @@ public class List<Element where Element : Comparable> {
     }
 }
 
+/*
 extension List : SequenceType {
     
 }
+ */
