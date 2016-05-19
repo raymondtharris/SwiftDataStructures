@@ -46,11 +46,21 @@ public class List<Element where Element : Comparable> {
     }
     
     func insertBefore(newNode: Node<Element>, beforeThisNode: Node<Element>) {
-        
+        var current = head
+        while current?.next != beforeThisNode  {
+            current = current?.next
+        }
+        newNode.next = beforeThisNode
+        current?.next = newNode
+        size = size + 1
     }
     
     func insertAfter(newNode: Node<Element>, afterTheisNode: Node<Element>) {
-        
+        if afterTheisNode.next != nil {
+            newNode.next = afterTheisNode.next
+        }
+        afterTheisNode.next = newNode
+        size = size + 1
     }
     
     func removeAtTail() -> Node<Element>? {
@@ -81,19 +91,46 @@ public class List<Element where Element : Comparable> {
     }
     
     func removeBefore(beforeThisNode: Node<Element>) -> Node<Element>? {
+        var current = head
+        while current != beforeThisNode {
+            if current?.next?.next == beforeThisNode {
+                let toRemove = current?.next
+                current?.next = beforeThisNode
+                return toRemove
+            }
+            current = current?.next
+        }
         return nil
     }
     
     func removeAfter(afterThisNode: Node<Element>) -> Node<Element>? {
+        if afterThisNode.next != nil {
+            let toRemove = afterThisNode.next
+            if afterThisNode.next?.next != nil {
+                afterThisNode.next = afterThisNode.next?.next
+            }
+            return toRemove
+        }
         return nil
     }
     
     func findNode(searchFor: Node<Element>) -> Node<Element>? {
-        
+        var current = head
+        while current != nil {
+            if current == searchFor {
+                return current
+            }
+        }
         return nil
     }
 
     func findNodeByIndex(searchIndex: Element) -> Node<Element>? {
+        var current  = head
+        while current != nil {
+            if current?.index == searchIndex {
+                return current
+            }
+        }
         return nil
     }
 }
