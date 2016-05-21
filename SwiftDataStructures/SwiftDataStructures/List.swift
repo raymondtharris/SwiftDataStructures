@@ -13,12 +13,15 @@ public class List<Element where Element : Comparable> {
     var tail: Node<Element>? = nil
     var size: Int = 0
     var isEmpty: Bool = true
+    var current: Node<Element>? = nil
+    
     
     init(newHead: Node<Element>) {
         head = newHead
         tail = head
         size = 1
         isEmpty = false
+        current = head
     }
     
     init(){ }
@@ -28,7 +31,7 @@ public class List<Element where Element : Comparable> {
             head = newNode
             tail = newNode
         } else {
-            tail!.next = newNode
+            tail!.nextNode = newNode
             tail = newNode
         }
         size = size + 1
@@ -39,7 +42,7 @@ public class List<Element where Element : Comparable> {
             head = newNode
             tail = newNode
         } else {
-            newNode.next = head
+            newNode.nextNode = head
             head = newNode
         }
         size = size + 1
@@ -47,19 +50,19 @@ public class List<Element where Element : Comparable> {
     
     func insertBefore(newNode: Node<Element>, beforeThisNode: Node<Element>) {
         var current = head
-        while current?.next != beforeThisNode  {
-            current = current?.next
+        while current?.nextNode != beforeThisNode  {
+            current = current?.nextNode
         }
-        newNode.next = beforeThisNode
-        current?.next = newNode
+        newNode.nextNode = beforeThisNode
+        current?.nextNode = newNode
         size = size + 1
     }
     
     func insertAfter(newNode: Node<Element>, afterTheisNode: Node<Element>) {
-        if afterTheisNode.next != nil {
-            newNode.next = afterTheisNode.next
+        if afterTheisNode.nextNode != nil {
+            newNode.nextNode = afterTheisNode.nextNode
         }
-        afterTheisNode.next = newNode
+        afterTheisNode.nextNode = newNode
         size = size + 1
     }
     
@@ -68,8 +71,8 @@ public class List<Element where Element : Comparable> {
             let toRemove = tail!
             var current = head
             while current != nil {
-                if current?.next == tail {
-                    current?.next = nil
+                if current?.nextNode == tail {
+                    current?.nextNode = nil
                     tail = current
                     size = size - 1
                     return toRemove
@@ -83,7 +86,7 @@ public class List<Element where Element : Comparable> {
     func removeAtHead() -> Node<Element>? {
         if head != nil {
             let toRemove = head
-            head = head?.next
+            head = head?.nextNode
             size = size - 1
             return toRemove
         }
@@ -93,21 +96,21 @@ public class List<Element where Element : Comparable> {
     func removeBefore(beforeThisNode: Node<Element>) -> Node<Element>? {
         var current = head
         while current != beforeThisNode {
-            if current?.next?.next == beforeThisNode {
-                let toRemove = current?.next
-                current?.next = beforeThisNode
+            if current?.nextNode?.nextNode == beforeThisNode {
+                let toRemove = current?.nextNode
+                current?.nextNode = beforeThisNode
                 return toRemove
             }
-            current = current?.next
+            current = current?.nextNode
         }
         return nil
     }
     
     func removeAfter(afterThisNode: Node<Element>) -> Node<Element>? {
-        if afterThisNode.next != nil {
-            let toRemove = afterThisNode.next
-            if afterThisNode.next?.next != nil {
-                afterThisNode.next = afterThisNode.next?.next
+        if afterThisNode.nextNode != nil {
+            let toRemove = afterThisNode.nextNode
+            if afterThisNode.nextNode?.nextNode != nil {
+                afterThisNode.nextNode = afterThisNode.nextNode?.nextNode
             }
             return toRemove
         }
@@ -135,8 +138,19 @@ public class List<Element where Element : Comparable> {
     }
 }
 
-/*
+
+
+
+
 extension List : SequenceType {
+    public func generate() -> AnyGenerator<Element> {
+        return AnyGenerator(body: {
+            if self.current?.next() == nil {
+                return nil
+            }
+            return self.current?.next()?.index
+        })
+    }
     
 }
- */
+ 

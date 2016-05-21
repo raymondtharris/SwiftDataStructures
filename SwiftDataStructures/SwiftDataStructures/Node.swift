@@ -10,16 +10,16 @@ import Foundation
 
 public class Node<Element where Element : Comparable> {
     var index:Element
-    var next: Node<Element>? = nil
+    var nextNode: Node<Element>? = nil
     
     init(newIndex: Element) {
         self.index = newIndex
-        self.next = nil
+        self.nextNode = nil
     }
     
     init(newIndex: Element, newNext: Node<Element>) {
         self.index = newIndex
-        self.next = newNext
+        self.nextNode = newNext
     }
     
     
@@ -30,11 +30,21 @@ public class Node<Element where Element : Comparable> {
 extension Node : Equatable { }
 
 public func == <Element where Element : Equatable> (lhs: Node<Element>, rhs: Node<Element>) -> Bool {
-    return lhs.index == rhs.index && lhs.next! == rhs.next!
+    return lhs.index == rhs.index && lhs.nextNode! == rhs.nextNode!
 }
     
 extension Node : Comparable { }
 
 public func < <Element where Element : Comparable> (lhs: Node<Element>, rhs: Node<Element>) -> Bool {
     return lhs.index < rhs.index
+}
+
+
+extension Node : GeneratorType {
+    public func next() -> Node<Element>? {
+        if self.nextNode == nil {
+        return nil
+        }
+        return self.nextNode
+    }
 }
