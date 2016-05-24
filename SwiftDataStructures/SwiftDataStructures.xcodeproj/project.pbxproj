@@ -12,6 +12,7 @@
 		229173C91CE98FB60085378C /* SwiftDataStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229173C81CE98FB60085378C /* SwiftDataStructuresTests.swift */; };
 		229173D41CE98FC50085378C /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229173D31CE98FC50085378C /* Node.swift */; };
 		229A5A0E1CF1454100CD0D75 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229A5A0D1CF1454100CD0D75 /* Stack.swift */; };
+		229A5A101CF3C5AA00CD0D75 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229A5A0F1CF3C5AA00CD0D75 /* Heap.swift */; };
 		22EAC1B11CEAC51900C1F5EF /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EAC1B01CEAC51900C1F5EF /* List.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		229173CA1CE98FB60085378C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		229173D31CE98FC50085378C /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		229A5A0D1CF1454100CD0D75 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		229A5A0F1CF3C5AA00CD0D75 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		22EAC1B01CEAC51900C1F5EF /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				229173D31CE98FC50085378C /* Node.swift */,
 				22EAC1B01CEAC51900C1F5EF /* List.swift */,
 				229A5A0D1CF1454100CD0D75 /* Stack.swift */,
+				229A5A0F1CF3C5AA00CD0D75 /* Heap.swift */,
 				229173BE1CE98FB60085378C /* Info.plist */,
 			);
 			path = SwiftDataStructures;
@@ -208,6 +211,7 @@
 				229173D41CE98FC50085378C /* Node.swift in Sources */,
 				229A5A0E1CF1454100CD0D75 /* Stack.swift in Sources */,
 				22EAC1B11CEAC51900C1F5EF /* List.swift in Sources */,
+				229A5A101CF3C5AA00CD0D75 /* Heap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
